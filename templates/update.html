@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Entry</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<h2>Update Diary Entry</h2>
+<div class="dash-box">
+<form method="POST">
+
+    <label>Title</label><br>
+    <input type="text" name="title" value="{{ entry.title }}" required placeholder="title"><br><br>
+
+    <label>Content</label><br>
+    <textarea name="content" rows="5" cols="40" required placeholder="content">{{ entry.content }}</textarea><br><br>
+
+    <button type="submit">Update Entry</button>
+
+</form>
+</div>
+<br>
+
+<a href="/dashboard">Back to Dashboard</a>
+
+</body>
+</html>

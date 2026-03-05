@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h2>Welcome To Digital Diary</h2>
+    <div class="login-box">
+    <h3>     Register</h3>
+    <form method="POST" action="/register">
+
+    <label>Username:</label><br>
+    <input type="text" name="username" required placeholder="username"><br><br>
+
+    <label>Password:</label><br>
+    <input type="password" name="password" required placeholder="password"><br><br>
+
+    <button type="submit">Register</button>
+
+</form>
+<br>
+
+<a href="/login">Already have an account? Login</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+<div class="top-bar">
+<h2>Welcome {{ current_user.username }}</h2>
+
+<form action="{{ url_for('logout') }}" method="POST">
+    <button type="submit" class="logout">Logout</button>
+</form>
+</div>
+<hr>
+
+<h3>Add New Diary Entry</h3>
+<div class="dash-box">
+<form method="POST">
+
+    <label>Title</label><br>
+    <input type="text" name="title" required placeholder="title"><br><br>
+
+    <label>Content</label><br>
+    <textarea name="content" rows="5" cols="40" required placeholder="content"></textarea><br><br>
+
+    <button type="submit">Add Entry</button>
+
+</form>
+</div>
+<hr>
+
+<h3>Your Diary Entries</h3>
+
+{% for entry in entries %}
+
+<div style="border:1px solid black; padding:10px; margin:10px;">
+
+    <h4>{{ entry.title }}</h4>
+
+    <p>{{ entry.content }}</p>
+
+    <small>{{ entry.date_created }}</small>
+
+    <br><br>
+
+    <a href="/update/{{ entry.id }}">Update</a>
+    |
+    <a href="/delete/{{ entry.id }}">Delete</a>
+
+</div>
+
+{% endfor %}
+
+</body>
+</html>
